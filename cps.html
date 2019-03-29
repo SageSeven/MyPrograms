@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测测点击速度</title>
+</head>
+<body>
+	<p id="screen" style="border:1px solid; height:25px; width:50px; text-align: center;">0</p>
+	<button id="btn" align="center" style="height: 100px; width: 100px;">点击</button>
+	<script type="text/javascript">
+		let count = 0;
+		const scr = document.getElementById('screen');
+		const btn = document.getElementById('btn');
+		let event0 = function(){
+			if(count === 0){
+				setTimeout(() => {
+					btn.removeEventListener("click",event0);	
+				},5000);
+			}
+			count++;
+			scr.textContent = count + "";
+		}
+		btn.addEventListener("click",event0);
+
+	</script>
+</body>
+</html>
